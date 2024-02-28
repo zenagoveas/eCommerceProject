@@ -5,10 +5,10 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import pages.HomePage;
 import pages.ItemDetailsPage;
 import pages.ResultsListPage;
@@ -36,7 +36,7 @@ public class HomePageSteps {
         testContext.searchedItem = search;
         homePage.enterSearchKey(search);
         homePage.clickSearchButton();
-        Assert.assertTrue(resultsListPage.isResultListDisplayed(),"No results displayed");
+        Assert.assertTrue("No results displayed", resultsListPage.isResultListDisplayed());
     }
 
     @Then("he sees the item is listed on top")
@@ -58,8 +58,7 @@ public class HomePageSteps {
 
     @And("he verifies that the item is listed under Your Recently Viewed Items")
     public void heVerifiesThatTheItemIsListedUnderYourRecentlyViewedItems() {
-        Assert.assertTrue(homePage.verifyItemIsListedOnRecentlyViewedItems(testContext.searchedItem),
-                "Item "+testContext.searchedItem+" is not listed on Your Recently Viewed Items");
+        Assert.assertTrue("Item "+testContext.searchedItem+" is not listed on Your Recently Viewed Items", homePage.verifyItemIsListedOnRecentlyViewedItems(testContext.searchedItem));
     }
 
     @When("user adds the below list to the cart")
