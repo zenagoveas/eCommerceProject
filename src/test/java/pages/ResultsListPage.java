@@ -16,7 +16,7 @@ public class ResultsListPage {
     WebDriver driver;
     Wait<WebDriver> wait;
 
-    @FindBy(how = How.XPATH, using = "(//ul[contains(@class,'srp-results')]/li[1]//a)[3]")
+    @FindBy(how = How.XPATH, using = "(//ul//li[contains(@class,'s-item s-item__pl-on-bottom')]//a)[3]")
     private WebElement top1Result;
 
     public ResultsListPage(WebDriver driver){

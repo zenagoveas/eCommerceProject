@@ -14,6 +14,8 @@ import pages.ItemDetailsPage;
 import pages.ResultsListPage;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 public class HomePageSteps {
 
@@ -63,5 +65,11 @@ public class HomePageSteps {
 
     @When("user adds the below list to the cart")
     public void userAddsTheBelowListToTheCart(DataTable dataTable) {
+        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+
+        for (Map<String, String> row : rows) {
+            userSearchesForItem(row.get("Item"));
+            heAddsTopResultToTheCart();
+        }
     }
 }
