@@ -1,6 +1,7 @@
 package pages;
 
 import cucumber.TestContext;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,7 @@ public class ResultsListPage {
     WebDriver driver;
     Wait<WebDriver> wait;
 
-    @FindBy(how = How.XPATH, using = "(//ul//li[contains(@class,'s-item s-item__pl-on-bottom')]//a)[3]")
+    @FindBy(how = How.XPATH, using = "(//ul/li[contains(@class,'s-item s-item__pl-on-bottom')])[1]//span[@role='heading']")
     private WebElement top1Result;
 
     public ResultsListPage(WebDriver driver){
@@ -41,8 +42,7 @@ public class ResultsListPage {
         }
     }
 
-    public void clickTopResult()
-    {
+    public void clickTopResult() {
         top1Result.click();
     }
 }

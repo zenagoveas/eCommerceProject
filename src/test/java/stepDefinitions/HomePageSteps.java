@@ -70,6 +70,8 @@ public class HomePageSteps {
         for (Map<String, String> row : rows) {
             userSearchesForItem(row.get("Item"));
             heAddsTopResultToTheCart();
+            testContext.getGenericUtils().closeCurrentTab();
+            testContext.getGenericUtils().switchWindowToParent();
         }
     }
 }

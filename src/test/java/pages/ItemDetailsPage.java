@@ -18,6 +18,9 @@ public class ItemDetailsPage {
     @FindBy(how = How.XPATH, using = "//span[text()='Add to cart']")
     private WebElement addToCartButton;
 
+    @FindBy(how = How.XPATH, using = "//span[text()='Go to cart']")
+    private WebElement goToCartButton;
+
     public ItemDetailsPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -26,6 +29,7 @@ public class ItemDetailsPage {
 
     public void clickAddToCartButton() {
         addToCartButton.click();
+        wait.until(d -> goToCartButton.isEnabled());
     }
 
 }

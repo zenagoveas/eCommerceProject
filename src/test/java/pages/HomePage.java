@@ -23,6 +23,8 @@ public class HomePage {
     private WebElement productName;
     @FindBy(how = How.ID, using = "gh-la")
     private WebElement logo;
+    @FindBy(how = How.CLASS_NAME, using = "gh-cart-icon")
+    private WebElement cartIcon;
     @FindBy(how = How.XPATH, using = "//h2[contains(normalize-space(),'Your Recently Viewed Items')]/ancestor::div[@class='vl-card-header']")
     private WebElement yourRecentlyViewedItemsHeading;
 
@@ -42,8 +44,11 @@ public class HomePage {
 
     public void enterSearchKey(String key)
     {
+        searchBox.clear();
         searchBox.sendKeys(key);
     }
+
+    public void clickCartIcon() { cartIcon.click(); }
 
     public String getProductName()
     {

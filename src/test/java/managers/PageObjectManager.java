@@ -6,6 +6,8 @@ import pages.*;
 public class PageObjectManager {
     private WebDriver driver;
     private HomePage homePage;
+
+    private CartPage cartPage;
     private ResultsListPage resultsListPage;
     private ItemDetailsPage itemDetailsPage;
 
@@ -17,6 +19,9 @@ public class PageObjectManager {
         return (homePage == null) ? homePage = new HomePage(driver) : homePage;
     }
 
+    public CartPage getCartPage(){
+        return (cartPage == null) ? cartPage = new CartPage(driver) : cartPage;
+    }
 
     public ResultsListPage getResultsListPage()
     {
