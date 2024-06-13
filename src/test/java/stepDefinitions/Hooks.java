@@ -12,7 +12,7 @@ public class Hooks {
         testContext = context;
     }
 
-    @Before
+    @Before("@UI")
     public void BeforeSteps() {
 		/*What all you can perform here
 			Starting a web-driver
@@ -25,7 +25,7 @@ public class Hooks {
         testContext.getWebDriverManager().getDriver().get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
     }
 
-    @After
+    @After("@UI")
     public void AfterSteps() {
         testContext.getWebDriverManager().closeDriver();
     }
